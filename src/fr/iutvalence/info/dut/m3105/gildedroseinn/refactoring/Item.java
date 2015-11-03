@@ -45,10 +45,12 @@ public class Item
 	
 	public void decreaseQuality()
 	{
-		if (this.getSellIn()<0)
-			this.setQuality(this.getQuality()-2);
-		else
-			this.setQuality(this.getQuality()-1);
+		if (this.getQuality()>0){
+			if (this.getSellIn()<0 && this.getQuality()>1)
+				this.setQuality(this.getQuality()-2);
+			else
+				this.setQuality(this.getQuality()-1);
+		}
 	}
 	
 	public void decreaseSellIn()
