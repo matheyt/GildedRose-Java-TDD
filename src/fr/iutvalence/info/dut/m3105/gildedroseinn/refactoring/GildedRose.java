@@ -26,8 +26,10 @@ public class GildedRose
 	public static void updateItem(Item item)
 	{
 		item.decreaseSellIn();
-		if (item.getName()=="Aged Brie")
-			item.increaseQuality();
+		if (item.getName()=="Aged Brie"){
+			if (item.getQuality()<50)
+				item.increaseQuality();
+		}
 		else
 			item.decreaseQuality();
 	}
