@@ -57,4 +57,8 @@ public class Item
 	{
 		this.setSellIn(this.getSellIn()-1);
 	}
+
+	public void increaseQuality() {
+		this.setQuality(this.getQuality()+1);
+	}
 }

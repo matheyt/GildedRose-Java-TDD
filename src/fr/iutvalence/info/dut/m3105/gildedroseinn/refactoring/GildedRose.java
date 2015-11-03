@@ -27,7 +27,7 @@ public class GildedRose
 	{
 		item.decreaseSellIn();
 		if (item.getName()=="Aged Brie")
-			item.setQuality(item.getQuality()+1);
+			item.increaseQuality();
 		else
 			item.decreaseQuality();
 	}
