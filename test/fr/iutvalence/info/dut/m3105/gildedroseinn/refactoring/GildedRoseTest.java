@@ -7,9 +7,9 @@ import org.junit.Test;
 public class GildedRoseTest
 {
 	@Test
-	public void aSimpleBeginningTest()
+	public void testItem()
 	{
-		assertEquals(true,false);
+		
 	}
 
 }
