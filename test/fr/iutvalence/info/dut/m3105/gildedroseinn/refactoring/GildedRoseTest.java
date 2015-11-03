@@ -24,12 +24,12 @@ public class GildedRoseTest
 	{
 		ArrayList<Item> items = new ArrayList<Item>();
 		items.add(new Item("Robert", 10, 10));
-		items.add(new Item("Bonjour", 0, 0));
+		items.add(new Item("Bonjour", 1, 1));
 		GildedRose.updateItems(items);
 		assertEquals(9,items.get(0).getSellIn());
 		assertEquals(9,items.get(0).getQuality());
-		assertEquals(-1,items.get(1).getSellIn());
-		assertEquals(-1,items.get(1).getQuality());
+		assertEquals(0,items.get(1).getSellIn());
+		assertEquals(0,items.get(1).getQuality());
 	}
 	
 	@Test
