@@ -42,4 +42,17 @@ public class Item
 	{
 		this.quality = quality;
 	}
+	
+	public void decreaseQuality()
+	{
+		if (this.getSellIn()<0)
+			this.setQuality(this.getQuality()-2);
+		else
+			this.setQuality(this.getQuality()-1);
+	}
+	
+	public void decreaseSellIn()
+	{
+		this.setSellIn(this.getSellIn()-1);
+	}
 }
