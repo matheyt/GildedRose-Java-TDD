@@ -36,13 +36,26 @@ public class GildedRoseTest
 	public void testLoweringValuesNegativeSellIn()
 	{
 		ArrayList<Item> items = new ArrayList<Item>();
-		items.add(new Item("+5 Dexterity Vest", 10, 10));
-		items.add(new Item("Aged Brie", -2, 10));
+		items.add(new Item("Robert", 10, 10));
+		items.add(new Item("Bonjour", -2, 10));
 		GildedRose.updateItems(items);
 		assertEquals(9,items.get(0).getSellIn());
 		assertEquals(9,items.get(0).getQuality());
 		assertEquals(-3,items.get(1).getSellIn());
 		assertEquals(8,items.get(1).getQuality());
+	}
+	
+	@Test
+	public void testLoweringValuesNotNegativeQuality()
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		items.add(new Item("Robert", 10, 10));
+		items.add(new Item("Bonjour", -2, 0));
+		GildedRose.updateItems(items);
+		assertEquals(9,items.get(0).getSellIn());
+		assertEquals(9,items.get(0).getQuality());
+		assertEquals(-3,items.get(1).getSellIn());
+		assertEquals(0,items.get(1).getQuality());
 	}
 	
 }
