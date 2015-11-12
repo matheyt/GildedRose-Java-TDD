@@ -26,15 +26,49 @@ public class GildedRose
 	public static void updateItem(Item item)
 	{
 	if (item.getName()!="Sulfuras")
-	{	
-		item.decreaseSellIn();
-		if (item.getName()=="Aged Brie"){
-			if (item.getQuality()<50)
-				item.increaseQuality();
+		{	
+			item.decreaseSellIn();
+			switch (item.getName())
+			{
+			case "Aged Brie":
+				{
+					if (item.getQuality()<50)
+						item.increaseQuality();
+					break;
+				}
+			case "Backstage passes":
+			{
+				if (item.getSellIn()<11 && item.getSellIn()>5)
+				{
+					item.decreasequalitytwice();
+					break;
+				}
+				if (item.getSellIn()<=5 && item.getSellIn()>0)
+				{
+					item.decreasequalitythirdth();
+					break;
+				}
+				if (item.getSellIn()<=0) 
+					item.setQualityAtZero();
+				else
+				{
+					item.decreaseQualityonce();
+					break;
+				}
+				}
+			default:
+			{
+				if (item.getSellIn()<0)
+					item.decreasequalitytwice();
+				else
+					item.decreaseQualityonce();
+				break;
+			}
+			
+			}
+			
+	
 		}
-		else
-			item.decreaseQuality();
-	}
-	}
 
+}
 }

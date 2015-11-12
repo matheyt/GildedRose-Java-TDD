@@ -43,14 +43,14 @@ public class Item
 		this.quality = quality;
 	}
 	
-	public void decreaseQuality()
+	public void decreaseQualityonce()
 	{
-		if (this.getQuality()>0){
-			if (this.getSellIn()<0 && this.getQuality()>1)
-				this.setQuality(this.getQuality()-2);
-			else
-				this.setQuality(this.getQuality()-1);
+		if (this.getQuality()>0)
+		{
+			this.setQuality(this.getQuality()-1);
 		}
+		else
+			this.setQualityAtZero();
 	}
 	
 	public void decreaseSellIn()
@@ -60,5 +60,29 @@ public class Item
 
 	public void increaseQuality() {
 		this.setQuality(this.getQuality()+1);
+	}
+
+	public void decreasequalitytwice() {
+		if (this.getQuality()>1)
+		{
+		this.setQuality(this.getQuality()-2);
+		}
+		else
+			this.setQualityAtZero();
+	}
+
+	public void setQualityAtZero() {
+		this.setQuality(0);
+		
+	}
+
+	public void decreasequalitythirdth() {
+		if (this.getQuality()>2)
+		{
+		this.setQuality(this.getQuality()-3);
+		}
+		else
+			this.setQualityAtZero();
+		
 	}
 }
