@@ -83,4 +83,16 @@ public class GildedRoseTest
 		assertEquals(-3,items.get(1).getSellIn());
 		assertEquals(0,items.get(1).getQuality());
 	}
+	@Test
+	public void testWhenIsSulfuras()
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		items.add(new Item("Sulfuras", 10, 30));
+		items.add(new Item("Bonjour", -2, 0));
+		GildedRose.updateItems(items);
+		assertEquals(10,items.get(0).getSellIn());
+		assertEquals(30,items.get(0).getQuality());
+		assertEquals(-3,items.get(1).getSellIn());
+		assertEquals(0,items.get(1).getQuality());	
+	}
 }
