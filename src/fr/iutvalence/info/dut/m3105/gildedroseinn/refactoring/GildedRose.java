@@ -32,36 +32,17 @@ public class GildedRose
 			{
 			case "Aged Brie":
 				{
-					if (item.getQuality()<50)
-						item.increaseQuality();
+					updateAgedBrie(item);
 					break;
 				}
 			case "Backstage passes":
 			{
-				if (item.getSellIn()<11 && item.getSellIn()>5)
-				{
-					item.decreasequalitytwice();
-					break;
-				}
-				if (item.getSellIn()<=5 && item.getSellIn()>0)
-				{
-					item.decreasequalitythirdth();
-					break;
-				}
-				if (item.getSellIn()<=0) 
-					item.setQualityAtZero();
-				else
-				{
-					item.decreaseQualityonce();
-					break;
-				}
+				updateBackstagePasses(item);
+				break;
 				}
 			default:
 			{
-				if (item.getSellIn()<0)
-					item.decreasequalitytwice();
-				else
-					item.decreaseQualityonce();
+				updateCommonItem(item);
 				break;
 			}
 			
@@ -71,4 +52,39 @@ public class GildedRose
 		}
 
 }
+
+	private static void updateCommonItem(Item item) {
+		if (item.getSellIn()<0)
+			item.decreasequalitytwice();
+		else
+			item.decreaseQualityonce();
+	}
+
+	private static void updateBackstagePasses(Item item) {
+		if (item.getSellIn()>10)
+		{
+			item.decreaseQualityonce();
+		}
+		else{
+			
+			if (item.getSellIn()<11 && item.getSellIn()>5)
+			{
+				item.decreasequalitytwice();
+			}
+			else
+			{
+				if (item.getSellIn()<=5 && item.getSellIn()>0)
+				{
+				item.decreasequalitythirdth();
+				}
+				else 
+					if(item.getSellIn()<=0) 
+						item.setQualityAtZero();
+		}}
+	}
+
+	private static void updateAgedBrie(Item item) {
+		if (item.getQuality()<50)
+			item.increaseQuality();
+	}
 }
