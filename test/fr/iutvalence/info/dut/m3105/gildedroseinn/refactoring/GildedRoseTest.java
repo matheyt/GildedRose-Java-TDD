@@ -95,4 +95,22 @@ public class GildedRoseTest
 		assertEquals(-3,items.get(1).getSellIn());
 		assertEquals(0,items.get(1).getQuality());	
 	}
+	@Test
+	public void testWhenIsBackstagePasses()
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		items.add(new Item("Backstage passes", 15, 30));
+		items.add(new Item("Backstage passes", 10, 30));
+		items.add(new Item("Backstage passes", 5, 30));
+		items.add(new Item("Backstage passes", 0, 30));
+		GildedRose.updateItems(items);
+		assertEquals(14,items.get(0).getSellIn());
+		assertEquals(29,items.get(0).getQuality());
+		assertEquals(9,items.get(1).getSellIn());
+		assertEquals(28,items.get(1).getQuality());
+		assertEquals(4,items.get(2).getSellIn());
+		assertEquals(27,items.get(2).getQuality());
+		assertEquals(-1,items.get(3).getSellIn());
+		assertEquals(0,items.get(3).getQuality());
+	}
 }
