@@ -40,6 +40,11 @@ public class GildedRose
 				updateBackstagePasses(item);
 				break;
 				}
+			case "Conjured":
+			{
+				item.decreasequalitytwice();
+				break;
+			}
 			default:
 			{
 				updateCommonItem(item);
