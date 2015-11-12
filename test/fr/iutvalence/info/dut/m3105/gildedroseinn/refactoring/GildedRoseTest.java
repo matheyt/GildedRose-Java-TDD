@@ -113,4 +113,16 @@ public class GildedRoseTest
 		assertEquals(-1,items.get(3).getSellIn());
 		assertEquals(0,items.get(3).getQuality());
 	}
+	@Test
+	public void testWhenIsConjured()
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		items.add(new Item("Conjured", 10, 30));
+		items.add(new Item("Bonjour", -2, 0));
+		GildedRose.updateItems(items);
+		assertEquals(9,items.get(0).getSellIn());
+		assertEquals(28,items.get(0).getQuality());
+		assertEquals(-3,items.get(1).getSellIn());
+		assertEquals(0,items.get(1).getQuality());	
+	}
 }
