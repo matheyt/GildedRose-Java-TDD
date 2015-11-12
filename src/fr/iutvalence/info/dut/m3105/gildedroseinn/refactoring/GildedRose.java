@@ -25,6 +25,8 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{
+	if (item.getName()!="Sulfuras")
+	{	
 		item.decreaseSellIn();
 		if (item.getName()=="Aged Brie"){
 			if (item.getQuality()<50)
@@ -32,6 +34,7 @@ public class GildedRose
 		}
 		else
 			item.decreaseQuality();
+	}
 	}
 
 }
